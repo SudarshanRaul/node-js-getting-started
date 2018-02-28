@@ -1,9 +1,15 @@
-const express = require('express')
-const path = require('path')
+const express = require('express');
+const path = require('path');
+const cors = require('cors');
 
 const getData = require('./API/getData');
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000;
+
+var corsOptions = {
+  origin: 'http://sudarshan.js.org',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
